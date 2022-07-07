@@ -1,0 +1,128 @@
+#algolia-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+}
+
+#searchbox {
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+.filters {
+    grid-row: 2;
+    grid-column: 1;
+}
+.results {
+    grid-row: 2;
+    grid-column: 2;
+}
+
+.ais-Highlight-highlighted {
+    color: inherit;
+    background-color: rgba(84,104,255,.4);
+    font-size: inherit;
+}
+
+.pagination-container {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 20px;
+}
+.pagination-container .ais-HitsPerPage-select {
+    height: 32px;
+}
+
+article {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 400px;
+    column-gap: 20px;
+    grid-template-rows: auto auto auto auto auto auto auto 1fr;
+}
+
+article .title {
+    margin-top: 8px;
+    font-size: 14px;
+    color: gray;
+}
+article p {
+    display: block;
+    margin: 0px;
+}
+
+article .name-container {
+    grid-row: 1;
+    grid-column: 1 / 3;
+}
+article .name-container > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.stars {
+    margin-left: 8px;
+    height: 24px;
+}
+.stars svg {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    fill: yellowgreen;
+}
+
+article .description {
+    grid-row: 2;
+    grid-column: 1;
+}
+article .summary {
+    grid-row: 3;
+    grid-column: 1;
+}
+article .space {
+    grid-row: 4;
+    grid-column: 1;
+}
+article .neigh {
+    grid-row: 5;
+    grid-column: 1;
+}
+article .transit {
+    grid-row: 6;
+    grid-column: 1;
+}
+article .info {
+    grid-row: 7;
+    grid-column: 1;
+}
+article .info > * {
+    margin-top: 8px;
+}
+article .image {
+    grid-column: 2;
+    grid-row: 2 / 9;
+    margin-top: 8px;
+    width: 100%;
+}
+article .properties {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 4px;
+    grid-auto-flow: column;
+    width: fit-content;
+}
+article .properties .key {
+    color: gray;
+    font-size: 12px;
+}
+article .properties .value {
+    font-size: 12px;
+}
+
+
+.ais-GeoSearch-map {
+    height: 500px; /* You can change this height */
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+
+  <link rel="shortcut icon" href="./favicon.png">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/satellite-min.css">
+  <link rel="stylesheet" href="./src/index.css">
+  <link rel="stylesheet" href="./src/app.css">
+  <link rel="stylesheet" href="./src/algolia.css">
+  <link rel="stylesheet" href="./src/setup.css">
+
+
+  <title>Demo Listings Search Application</title>
+
+<script src="https://maps.googleapis.com/maps/api/js?v=weekly&amp;key=AIzaSyD2COdYd2Na5fqOcSjpAw5NgzpqjnBbaqo"></script>
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="header-title">
+      <a href="/">Demo Listings Search Application</a>
+    </h1>
+    <a href="#" onclick="showSetup();" id="setup-link">Change Algolia properties</a>
+  </header>
+
+  <form id="setup-container">
+    <h2>Get started with the Demo Application</h2>
+    <p>Please provide the details of the Algolia index that you have created based on the blog post or <a href="#" onclick="setupDefaults();"><b>continue with defaults</b></a> to use the Index that was created by the authors as part of the post.</p>
+    <p>The Application ID & Search-Only API key are available on the <a href="https://www.algolia.com/account/api-keys/all" target="_blank">API keys page</a> of your application. Please also create an index and fill it with the sample data as per the steps in the <a target="_blank" href="https://colab.research.google.com/drive/1hO996af5PzI1piGdFlTyr1InhGJmUED0">Jupyter Notebook</a>.</p>
+
+    <div class="placeholder">The Algolia Application ID:</div>
+    <input id="setup-app-id" type="text" tabIndex="0" oninput="canSetupContinue();">
+    <div class="placeholder">Search-Only API Key:</div>
+    <input id="setup-search-key" type="text" tabIndex="1" oninput="canSetupContinue();">
+    <div class="placeholder">The Index name:</div>
+    <input id="setup-index-name" type="text" tabIndex="2" oninput="canSetupContinue();">
+    <div id="setup-error-message"></div>
+    <div class="buttons">
+      <button id="setup-skip" onclick="setupDefaults();" class="ais-InfiniteHits-loadMore" type="button" tabindex="3">Skip, continue with defaults</button>
+      <button id="setup-continue" class="ais-InfiniteHits-loadMore" type="submit" tabindex="4" onclick="submitSetup()">Save & Continue</button>
+    </div>
+    
+  </form>
+  <!--Used to host the Algolia search UI-->
+  <div id="algolia-container">
+    <!-- The search box. Located on the top of the page, spanning the entire width -->
+    <div id="searchbox"></div>
+
+    <!-- The filters section, located on the left -->
+    <div class="filters">
+      <h2>Filters</h2>
+      <!-- Clear filters button location -->
+      <div id="clear-refinements"></div>
+      <!-- Country filter location -->
+      <h3>Country</h3>
+      <div id="country-list"></div>
+      <!-- Property Types filter location -->
+      <h3>Property Types</h3>
+      <div id="property-list"></div>
+      <!-- Review scores filter location -->
+      <h3>Review Scores</h3>
+      <div id="review-scores"></div>
+      <!-- Price filter location -->
+      <h3>Price</h3>
+      <div id="price"></div>
+      <!-- Cleaning fee filter location -->
+      <h3>Cleaning Fee</h3>
+      <div id="cleaning-fee"></div>
+    </div>
+
+    <!-- The results panel, located to the right side from the filters -->
+    <div class="results">
+      <h2>Results</h2>
+      <!-- The pagination container, which was later changed to infinite scroll results container -->
+      <div class="pagination-container">
+        <!-- The container which displays the number of results, and a link which can load the next set of results. These are modified from js -->
+        <div id="result-count">
+          <span></span>
+          <a href="#"></a>
+        </div>
+        <!-- The location of the control that controls how many results are loaded at once -->
+        <div id="per-page"></div>
+      </div>
+      
+      <!-- The location for the map which shows the results on the world map -->
+      <div id="map-display">
+        <h3>Map</h3>
+        <div id="geo-search"></div>
+      </div>
+      <!-- The location of the search result details -->
+      <div id="details-display">
+        <h3>Details</h3>
+        <div id="hits"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.10.5/dist/algoliasearch-lite.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.41.2"></script>
+  <script src="./src/algolia.js"></script>
+  <script src="./src/app.js"></script>
+</body>
+
+</html>
