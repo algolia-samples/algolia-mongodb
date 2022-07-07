@@ -1,11 +1,11 @@
 # Algolia MongoDB Listings Application
 
-This repository contains the local files for the sample Algolia MongoDB Listings Application that is implemented as part of a blogpost series located [here]()
+This repository contains the local files for the sample Algolia MongoDB Listings Application that is implemented as part of a blogpost series located [here]().
 
 ## Features
 
 - A Python script to load an Algolia index with sample data from MongoDB. It is available both as a [Jupyter Notebook](data-pipeline/Algolia_index_load.ipynb) and a [Python script](data-pipeline/Algolia_index_load.py)
-- A [Web application](search-web-application/) to query the Algolia index directly and display search results. 
+- A [Web application](search-web-application/) to query the Algolia index directly and display search results
 
 ## Algolia Index loading
 
@@ -17,7 +17,7 @@ You will need to use both the **Application ID** and **Admin API Key** in when c
 
 Open either the:
 - publicly hosted Notebook on [Google collab](https://colab.research.google.com/drive/1hO996af5PzI1piGdFlTyr1InhGJmUED0)
-- local [Jupyter Notebook](data-pipeline/Algolia_index_load.ipynb) 
+- local [Jupyter Notebook](data-pipeline/Algolia_index_load.ipynb)
 - local [Python script](data-pipeline/Algolia_index_load.py)
 They are all responsible for loading the Algolia index. Change the **algolia_app_id** and the **algolia_admin_key** variables to your API keys and run the script.
 
